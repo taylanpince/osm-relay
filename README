@@ -1,0 +1,5 @@
+osm-relay
+=========
+
+A simple Open Street Maps relay that gets all streets within a bounding box,
+then returns a JSON response with the street waypoints
