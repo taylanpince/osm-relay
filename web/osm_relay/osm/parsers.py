@@ -24,7 +24,27 @@ def get_streets(bbox):
 
                 waypoints.append((point.attrib.get("lat"), point.attrib.get("lon")))
 
-        streets.append(waypoints)
+        streets.append({
+            "coordinates": waypoints,
+            "rules": [
+                {
+                    "type": 1,
+                    "days": ["Monday", "Tuesday"],
+                    "start_time_hour": 7,
+                    "start_time_minute": 0,
+                    "end_time_hour": 17,
+                    "end_time_minute": 0,
+                },
+                {
+                    "type": 2,
+                    "days": ["Thursday"],
+                    "start_time_hour": 18,
+                    "start_time_minute": 0,
+                    "end_time_hour": 19,
+                    "end_time_minute": 0,
+                },
+            ],
+        })
 
         if count > 50: break
 
