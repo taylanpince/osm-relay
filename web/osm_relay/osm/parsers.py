@@ -11,13 +11,13 @@ def get_streets(bbox):
     """
     tree = etree.parse(OSM_API_URL % bbox)
     streets = []
-    count = 0
+    #count = 0
 
     for way in tree.xpath("//way"):
         if len(way.xpath("tag[@k='highway']")) == 0:
             continue
 
-        count += 1
+        #count += 1
         waypoints = []
 
         for node in way.getchildren():
@@ -48,6 +48,6 @@ def get_streets(bbox):
             ],
         })
 
-        if count > 50: break
+        #if count > 50: break
 
     return streets
