@@ -14,11 +14,13 @@ def get_streets(bbox):
     count = 0
 
     for way in tree.xpath("//way"):
+        if len(way.xpath("tag[@k='highway']")) == 0:
+            continue
+
         count += 1
         waypoints = []
 
         for node in way.getchildren():
-
             if node.tag == "nd":
                 point = tree.xpath("//node[@id=%s]" % node.attrib.get("ref"))[0]
 

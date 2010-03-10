@@ -13,7 +13,6 @@ def deploy():
     Deploy the latest version
     """
     update()
-    update_pip()
     restart()
 
 def update():
@@ -34,6 +33,7 @@ def restart():
     """
     sudo('/etc/init.d/apache2 stop')
     sudo('/etc/init.d/apache2 start')
+    sudo('/etc/init.d/nginx restart')
 
 def update_pip():
     """
